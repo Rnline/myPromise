@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p=new Promise((resolve,reject)=>{
+
+            //演示第二种错误情况
+            console.log(a)
+
+        })
+        //catch中的参数函数什么时候会被执行
+        //1.当promise的状态改为rejected时，被执行
+        //2.当promise执行体中出现代码错误的时候，catch被执行，捕获错误（thorw new Error（'错误')这种情况catch也会被捕获)
+        p.catch((reason)=>{
+            console.log('失败',reason)
+        })
+    </script>
+</body>
+</html>

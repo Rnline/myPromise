@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const p = new Promise((resolve, reject) => {
+        //通过调用resolve，传递参数，改变 当前promise对象的结果
+        resolve("成功的结果")
+        // reject('失败的结果')
+      })
+
+      const t = p.then(
+        (value) => {
+          //当promise的状态是fulfilled时，执行
+          console.log("成功时调用", value)
+        },
+        (err) => {
+          //当promise的状态是rejected时，执行
+          console.log("失败时调用", err)
+        }
+      )
+      //then方法接收两个参数：
+      //1.是一个函数
+      //2.还是一个函数
+      //then的返回值是一个新的promise对象(实例),而且它的状态是pending
+      //promise状态不改变，then方法不执行
+      console.dir(t)
+    </script>
+  </body>
+</html>
